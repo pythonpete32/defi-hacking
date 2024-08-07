@@ -29,7 +29,7 @@ contract VulnerableBank {
 
         // Vulnerability: State is updated after the external call
         // This allows for potential reentrancy
-        (bool success, ) = msg.sender.call{value: balance}("");
+        (bool success,) = msg.sender.call{value: balance}("");
         require(success, "Transfer failed");
 
         // Balance is updated after the transfer

